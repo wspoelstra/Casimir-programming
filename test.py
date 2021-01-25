@@ -8,7 +8,8 @@ def CircleCircum(R):
 
 def Surf(R):
 	A = pi*R**2
-	"""Kasperss docstring - Anna docstring """
+	"""Kasperss docstring"""
+	"""New docstring""" 
 	return A
 
 print("Circle circumference = ", C)
