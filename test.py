@@ -2,6 +2,7 @@ print('Hello World')
 from math import pi
 
 def CircleCircum(R):
+"""This function returns the circumference of a circle of radius R"""
 	C = 2*pi*R
 	return C
 
