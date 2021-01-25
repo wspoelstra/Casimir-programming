@@ -4,7 +4,10 @@ import matplotlib.image as mpimg
 import scipy.ndimage as nd
 import cv2
 
-image = cv2.imread('bacterial_colonies.jpg')
-gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
-cv2.imshow('Original image',image)
-cv2.imshow('Gray image', gray)
+def rgb2gray(rgb):
+    return np.dot(rgb[...,:3], [0.2989, 0.5870, 0.1140])
+
+img = mpimg.imread('bacterial_colonies.jpg')     
+gray = rgb2gray(img)    
+plt.imshow(gray, cmap=plt.get_cmap('gray'), vmin=0, vmax=1)
+plt.show()
