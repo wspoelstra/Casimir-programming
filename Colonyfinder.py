@@ -35,22 +35,24 @@ for c in range(NumPlates):
     Centers[c,1] = CirclesMatrix[c,1]
     Radii[c] = CirclesMatrix[c,2]
 
+Centers = Centers.astype(np.int)
+Radii = Radii.astype(np.int)
+
 imagesize = np.shape(img)
 maskimg = np.zeros([imagesize[0],imagesize[1]])
 
 for i in range(NumPlates):
-#     Plate = np.zeros(2*Radii[1].astype(np.int))
+    Plate = np.zeros([2*Radii[i], 2*Radii[i]])
     for x in range(imagesize[1]):
         for y in range(imagesize[0]):
             if (x-Centers[i,0])**2+(y-Centers[i,1])**2<Radii[i]**2:
                 maskimg[y,x] = 1
-#                 Plate[y-Centers[i,1].astype(np.int),x-Centers[i,0].astype(np.int)] = 1
+                Plate[y-Centers[i,1]-Radii[i],x-Centers[i,0]+Radii[i]] = img[y,x]
     
-#     plt.imshow(Plate,cmap = 'gray')            
-#     del Plate
+    plt.imsave('Plate'+str(i)+'.png',Plate)
 
+    del Plate
 
-plt.imshow(maskimg*img,cmap = 'gray')
-
+plt.imshow(maskimg*img, cmap = 'gray')
 
 print(Elapsed)
