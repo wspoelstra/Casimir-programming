@@ -11,3 +11,5 @@ img = mpimg.imread('bacterial_colonies.jpg')
 gray = rgb2gray(img)    
 plt.imshow(gray, cmap=plt.get_cmap('gray'), vmin=0, vmax=1)
 
+# test
+
