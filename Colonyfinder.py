@@ -10,5 +10,5 @@ def rgb2gray(rgb):
 image = mpimg.imread('bacterial_colonies.jpg')
 gray = rgb2gray(image)
 img = plt.imshow(gray, cmap='gray')
-img.show()
+plt.show(img)
 plt.imsave('Outputimage.png', gray, cmap='gray')
