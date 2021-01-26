@@ -7,8 +7,8 @@ import cv2
 def rgb2gray(rgb):
     return np.dot(rgb[...,:3], [0.2989, 0.5870, 0.1140])
 
-Image = mpimg.imread('bacterial_colonies.jpg')     
-gray = rgb2gray(Image)    
+image = mpimg.imread('bacterial_colonies.jpg')
+gray = rgb2gray(image)
 img = plt.imshow(gray, cmap='gray')
 img.show()
-
+plt.imsave('Outputimage.png', gray, cmap='gray')
