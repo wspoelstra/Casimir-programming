@@ -76,10 +76,15 @@ print("Code run in", "%.2f" % elapsed,"seconds")
 for i in range(0,10,1):
     img = cv2.imread('Plate'+ str(i) + '.png',0)
     hist,bins = np.histogram(img.ravel(),256,[0,256])
-    plt.plot(hist)
+    #plt.plot(hist)
     len_bins= len(bins)-1
     #here is the totaly area under the histogram 
     Total_Area= sum(hist[0:len_bins])/sum(hist)
     #area of bacterial colony normalized over total area
     bacteria_area= sum(hist[84:95])/sum(hist)
     print('Bacterial colony area in Plate',str(i), '=', bacteria_area*100)
+    
+# Show histogram only for one image
+img = cv2.imread('Plate0.png',0)
+hist,bins = np.histogram(img.ravel(),256,[0,256])
+plt.plot(hist)
